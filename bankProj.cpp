@@ -32,9 +32,9 @@ class Account
         cin>>balance;
         srand(time(0));
         this->accountNumber=700000000000+rand();
-        cout<<"Congratulations! your account has been created.\n";
-        cout<<"Your account number is :"<<this->accountNumber<<endl;
-        cout<<"Please note the account number for future references.\n";
+        cout<<"     Congratulations! "<<this->name<<" your account has been created.\n";
+        cout<<"     Your account number is :"<<this->accountNumber<<endl;
+        cout<<"     Please note your account number and PIN for future references.\n";
         cout<<string(58,'-')<<endl;
     }
     bool verifier(long long accountNumber,int pin)
@@ -62,11 +62,13 @@ class Account
     {
         long tempBalance;
         cout<<string(58,'-')<<endl;
-        cout<<"Enter the amount to withdraw :";
+        cout<<"Welcome back "<<this->name<<","<<endl;
+        cout<<"Available amount :"<<this->balance<<endl;
+        cout<<"Please enter the amount to withdraw :";
         cin>>tempBalance;
         if(tempBalance>this->balance)
         {
-            cout<<"Enter amount less than current amount.\n";
+            cout<<"Please enter amount less than current balance.\n";
             this->withdraw();
         }
         else
@@ -81,6 +83,7 @@ class Account
     {
         long tempBalance;
         cout<<string(58,'-')<<endl;
+        cout<<"Welcome back "<<this->name<<","<<endl;
         cout<<"Enter the amount to deposit :";
         cin>>tempBalance;
         this->balance=balance+tempBalance;
@@ -108,13 +111,49 @@ class Account
             this->changePin();
         }
     }
-    long long getAccountNumber()
+    void changeDetails()
     {
-        return(this->accountNumber);
-    }
-    int getPin()
-    {
-        return(this->pin);
+        int choice;
+        string tempDob,tempName;
+        long long tempContact;
+        cout<<string(58,'-')<<endl;
+        cout<<"Welcome "<<this->name<<","<<endl;
+        cout<<"     1. Change contact number.\n";
+        cout<<"     2. Change date of birth.\n";
+        cout<<"     3. Change PIN.\n";
+        cout<<"     4. Change account holder's name.\n";
+        cout<<"     5. Exit\n";
+        cout<<"     Enter the appropriate option :";
+        cin>>choice;
+        cout<<string(58,'-')<<endl;
+        switch(choice)
+        {
+            case 1:
+            cout<<"Enter the new contact number :";
+            cin>>tempContact;
+            this->contactNumber=tempContact;
+            cout<<"Your contact detail has been updated\n";
+            cout<<string(58,'-')<<endl;
+            break;
+            case 2:
+            cin>>tempDob;
+            this->dob=tempDob;
+            cout<<"Your date of birth is updated\n";
+            cout<<string(58,'-')<<endl;
+            break;
+            case 3:
+            this->changePin();
+            break;
+            case 4:
+            cout<<"Enter new account holder's name :";
+            cin.ignore();
+            getline(cin,tempName);
+            this->name=tempName;
+            cout<<"Account holder's name has been updated\n";
+            cout<<string(58,'-')<<endl;
+            break;
+            default:break;
+        }
     }
 };
 
@@ -133,7 +172,7 @@ int main()
         cout<<"      2. See existing user's account details.\n";
         cout<<"      3. Deposit money.\n";
         cout<<"      4. Withdraw money.\n";
-        cout<<"      5. Change PIN.\n";
+        cout<<"      5. Update account details.\n";
         cout<<"      6. Exit\n";
         cout<<"      Please choose the appropriate option :";
         cin>>choice;
@@ -206,7 +245,7 @@ int main()
             {
                 if(acc[i].verifier(tempAccountNumber,tempPin))
                 {
-                    acc[i].changePin();
+                    acc[i].changeDetails();
                     break;
                 }
                 else if(i==size)
