@@ -13,7 +13,7 @@ Inside login feature:
 Inside change account details feature:
 -Change contact number.
 -Change account holder's name.
--Change PIN number.'
+-Change PIN number.
 -Change date of birth.      
  
              
