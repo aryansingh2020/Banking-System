@@ -13,5 +13,9 @@ It has various features:
                                       4.Change date of birth.                     
              3.Withdraw money.
              4.Deposit money.
-             5.Exit. 
+             5.Exit.
+ #banking_system
+ #c++
+ #simple
+ 
              
