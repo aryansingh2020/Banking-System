@@ -5,8 +5,7 @@
 #include<string>
 #include<stdlib.h>
 using namespace std;
-/*Don't get confused with the same names of variables used in this code.Every variables used have a scope either within the class or function.Their 
-names are kept same to avoid confusion.*/
+/*Don't get confused with the same names of variables used in this code.Every variables used have a scope either within the class or function.They are not he same.*/
 class Account
 {
     private:
@@ -14,10 +13,21 @@ class Account
     int pin;                // variable to store PIN number.
     long long contactNumber;// variable to store contact number of the user
     string name;            // variable to store name of the user.
+    string gender;          // variable to store gender of the user.
     string dob;             // variable to store date of birth of the user.
     long balance;           // variable to store manage account money.
     
     public :
+    Account()
+    {
+        accountNumber=0;
+        pin=0;
+        contactNumber=0;
+        name="__";
+        gender="__";
+        dob="00/00/0000";
+        balance=0;
+    }
     void createAccount()    //method to create new user account.
     {
         cout<<string(128,'-')<<endl;
@@ -29,6 +39,8 @@ class Account
         cout<<"->Enter your DOB (dd/mm/yyyy) : ";
         cin.ignore();
         getline(cin,dob);
+        cout<<"->Enter your gender(Male/Female/Other) :";
+        cin>>gender;
         cout<<"->Create your 4 digit pin : ";
         cin>>pin;
         cout<<"->Enter amount to deposit : ";
@@ -196,11 +208,11 @@ int main() //Driver function-> main()
     {
         int choice;
         cout<<string(128,'=')<<endl;
-        cout<<"  ||||||||    ||||   |||   || ||  || |||||||| |||   ||   |||||||     |||||||| ||    || |||||||| |||||||| ||||||| ||||   ||||\n";
-        cout<<"  ||     ||  ||  ||  ||||  || || ||     ||    ||||  ||  ||          ||         ||  || ||           ||    ||      || || || ||\n";
-        cout<<"  ||||||||  |||||||| || || || ||||      ||    || || || ||   |||||    ||||||||   ||||   ||||||||    ||    ||||||| ||  |||  ||\n";
-        cout<<"  ||     || ||    || ||  |||| || ||     ||    ||  ||||  ||     ||           ||   ||           ||   ||    ||      ||       ||\n";
-        cout<<"  ||||||||  ||    || ||   ||| ||  || |||||||| ||   |||   |||||||    |||||||||    ||   |||||||||    ||    ||||||| ||       ||\n";
+        cout<<"  ||||||||    ||||   |||   || ||   || |||||||| |||   ||   |||||||     |||||||| ||    || |||||||| |||||||| ||||||| ||||   ||||\n";
+        cout<<"  ||     ||  ||  ||  ||||  || ||  ||     ||    ||||  ||  ||          ||         ||  || ||           ||    ||      || || || ||\n";
+        cout<<"  ||||||||  |||||||| || || || |||||      ||    || || || ||   |||||    ||||||||   ||||   ||||||||    ||    ||||||| ||  |||  ||\n";
+        cout<<"  ||     || ||    || ||  |||| ||  ||     ||    ||  ||||  ||     ||           ||   ||           ||   ||    ||      ||       ||\n";
+        cout<<"  ||||||||  ||    || ||   ||| ||   || |||||||| ||   |||   |||||||    |||||||||    ||   |||||||||    ||    ||||||| ||       ||\n";
         cout<<string(128,'=')<<endl;        
         cout<<"Welcome to the Banking System.\n";
         cout<<"  1. New user registration.\n";
@@ -214,6 +226,7 @@ int main() //Driver function-> main()
             user++;
             break;
             case 2:
+            cout<<string(128,'-')<<endl;
             cout<<"->Enter your account number :";
             cin>>tempAccountNumber;
             cout<<"->Enter your PIN :";
