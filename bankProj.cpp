@@ -201,10 +201,10 @@ int main() //Driver function-> main()
 {
     long long tempAccountNumber;
     int tempPin;
-    int size=20;
+    int size=5;  //size= number of accounts you want to create.
     Account*acc=new Account[size];
     int user=0;
-    while(user!=20)
+    while(user!=size)
     {
         int choice;
         cout<<string(128,'=')<<endl;
