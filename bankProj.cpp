@@ -39,7 +39,7 @@ class Account
         cout<<"->Enter your DOB (dd/mm/yyyy) : ";
         cin.ignore();
         getline(cin,dob);
-        cout<<"->Enter your gender(Male/Female/Other) :";
+        cout<<"->Enter your gender(Male/Female/Othe) :";
         cin>>gender;
         cout<<"->Create your 4 digit pin : ";
         cin>>pin;
